@@ -7,9 +7,13 @@ abstract class LoadableContentScreen<T extends LoadableContentViewModel>
   final T viewModel;
   final bool reloadDataEachTimeScreenIsDisplayed;
   final bool withSafeArea;
+  final bool withAppBar;
+  final double? appBarScrollElevation;
   const LoadableContentScreen(this.viewModel,
       {super.key,
+      this.appBarScrollElevation,
       this.reloadDataEachTimeScreenIsDisplayed = false,
+      this.withAppBar = true,
       this.withSafeArea = true});
 
   Widget? get child => null;
@@ -42,24 +46,29 @@ abstract class LoadableContentScreen<T extends LoadableContentViewModel>
           );
         });
     return Scaffold(
-        appBar: AppBar(
-            title: AnimatedBuilder(
-              animation: viewModel,
-              builder: (context, child) {
-                Widget? preparedWidget = pageTitleWidget(context, viewModel);
-                if (preparedWidget == null) {
-                  preparedWidget = Text(pageTitle(context, viewModel) ?? "");
-                }
-                return preparedWidget;
-              },
-            ),
-            leading: appBarLeading(context, viewModel),
-            actions: (actions != null && actions.isNotEmpty)
-                ? actions
-                    .map((e) => AnimatedBuilder(
-                        animation: viewModel, builder: (context, _) => e))
-                    .toList()
-                : null),
+        appBar: withAppBar
+            ? AppBar(
+                scrolledUnderElevation: appBarScrollElevation,
+                title: AnimatedBuilder(
+                  animation: viewModel,
+                  builder: (context, child) {
+                    Widget? preparedWidget =
+                        pageTitleWidget(context, viewModel);
+                    if (preparedWidget == null) {
+                      preparedWidget =
+                          Text(pageTitle(context, viewModel) ?? "");
+                    }
+                    return preparedWidget;
+                  },
+                ),
+                leading: appBarLeading(context, viewModel),
+                actions: (actions != null && actions.isNotEmpty)
+                    ? actions
+                        .map((e) => AnimatedBuilder(
+                            animation: viewModel, builder: (context, _) => e))
+                        .toList()
+                    : null)
+            : null,
         body: withSafeArea
             ? SafeArea(
                 child: futureBuilder,

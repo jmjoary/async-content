@@ -65,6 +65,7 @@ void main() {
   });
 }
 
+// ignore: must_be_immutable
 class TestLoadContentScreen extends LoadableContentScreen {
   TestLoadContentScreen(super.viewModel,
       {super.key, super.reloadDataEachTimeScreenIsDisplayed = false});
@@ -77,7 +78,7 @@ class TestLoadContentScreen extends LoadableContentScreen {
 
   String? title;
   @override
-  String? pageTitle(LoadableContentViewModel viewModel) {
+  String? pageTitle(BuildContext context, LoadableContentViewModel viewModel) {
     return title;
   }
 }
