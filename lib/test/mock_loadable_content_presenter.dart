@@ -5,22 +5,21 @@ class MockLoadableContentPresenter extends ILoadableContentPresenter
     with MockMixin {
   @override
   void startedLoading() {
-    addCalledFunction(named: "startedLoading");
+    addCall(named: "startedLoading");
   }
 
   @override
   void onError(dynamic error) {
-    addCalledFunction(named: "onError");
-    addReceivedObject(error, name: "error");
+    addCall(named: "onError", arguments: {"error": error});
   }
 
   @override
   void clearErrors() {
-    addCalledFunction(named: "clearError");
+    addCall(named: "clearError");
   }
 
   @override
   void finishedLoading() {
-    addCalledFunction(named: "finishedLoading");
+    addCall(named: "finishedLoading");
   }
 }
