@@ -19,8 +19,8 @@ class LoadableContent<T extends LoadableContentViewModel>
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-        future: viewModel.loadContentToDisplay(
-            force: reloadDataEachTimeScreenIsDisplayed),
+        future: Future(() => viewModel.loadContentToDisplay(
+            force: reloadDataEachTimeScreenIsDisplayed)),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting ||
               snapshot.connectionState == ConnectionState.active) {
