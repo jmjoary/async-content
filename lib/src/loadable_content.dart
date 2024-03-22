@@ -24,7 +24,7 @@ class LoadableContent<T extends LoadableContentViewModel>
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting ||
               snapshot.connectionState == ConnectionState.active) {
-            return Center(child: loadIndicator ?? CircularProgressIndicator());
+            return loadIndicator ?? Center(child: CircularProgressIndicator());
           }
           return AnimatedBuilder(
             key: const Key("viewmodel-watcher"),
