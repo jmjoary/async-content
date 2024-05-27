@@ -2,6 +2,7 @@ name: async_content
 description: A library that helps create screens that load content and work with a view model.
 version: 1.0.0
 # repository: https://github.com/my_org/my_repo
+publish_to: 'none'
 
 environment:
   sdk: '>=3.0.0 <4.0.0'
