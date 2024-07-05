@@ -116,4 +116,29 @@ class DisplayableError {
       this.resolutionActionText,
       this.cancelAction,
       this.cancelActionText});
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+
+    return other is DisplayableError &&
+        other.title == title &&
+        other.subtitle == subtitle &&
+        other.details == details &&
+        other.resolutionAction == resolutionAction &&
+        other.resolutionActionText == resolutionActionText &&
+        other.cancelAction == cancelAction &&
+        other.cancelActionText == cancelActionText;
+  }
+
+  @override
+  int get hashCode {
+    return title.hashCode ^
+        subtitle.hashCode ^
+        details.hashCode ^
+        resolutionAction.hashCode ^
+        resolutionActionText.hashCode ^
+        cancelAction.hashCode ^
+        cancelActionText.hashCode;
+  }
 }
