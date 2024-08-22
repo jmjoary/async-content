@@ -1,3 +1,4 @@
+import 'package:async_content/src/loadable_content_viewmodel.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
