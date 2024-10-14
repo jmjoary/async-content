@@ -33,13 +33,15 @@ abstract class LoadableContentViewModel
   Future loadContentToDisplay({bool force = false}) {
     Future? currentLoad = existingLoad;
 
-    if (currentLoad == null || force == true) {
+    if (currentLoad == null || force == true || shouldReloadContentOnDisplay) {
       currentLoad = startLoadingContent();
       existingLoad = currentLoad;
     }
 
     return currentLoad;
   }
+
+  bool get shouldReloadContentOnDisplay => false;
 
   bool get hasTriggeredInitialLoad => existingLoad != null;
 

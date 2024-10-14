@@ -15,7 +15,7 @@ class MockLoadableContentPresenter extends ILoadableContentPresenter
 
   @override
   void clearErrors() {
-    addCall(named: "clearError");
+    addCall(named: "clearErrors");
   }
 
   @override
