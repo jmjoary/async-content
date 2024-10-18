@@ -45,6 +45,8 @@ abstract class LoadableContentViewModel
 
   bool get hasTriggeredInitialLoad => existingLoad != null;
 
+  bool get hasError => loadingErrorTitle != null;
+
   @protected
   Future startLoadingContent();
 
