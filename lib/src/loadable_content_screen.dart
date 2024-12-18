@@ -54,10 +54,8 @@ abstract class LoadableContentScreen<T extends LoadableContentViewModel>
                   builder: (context, child) {
                     Widget? preparedWidget =
                         pageTitleWidget(context, viewModel);
-                    if (preparedWidget == null) {
-                      preparedWidget =
-                          Text(pageTitle(context, viewModel) ?? "");
-                    }
+                    preparedWidget ??=
+                        Text(pageTitle(context, viewModel) ?? "");
                     return preparedWidget;
                   },
                 ),
