@@ -30,10 +30,9 @@ class LoadableContentBuilder<T extends LoadableContentViewModel>
             key: const Key("viewmodel-watcher"),
             animation: viewModel,
             builder: (context, child) {
-              final errorTitle = viewModel.loadingErrorTitle;
               return Column(
                 children: [
-                  if (errorTitle != null)
+                  if (viewModel.hasError)
                     LoadedContentErrorView(viewModel: viewModel),
                   Expanded(child: builder(context, viewModel, child)),
                 ],
