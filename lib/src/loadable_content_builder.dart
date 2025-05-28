@@ -1,6 +1,8 @@
 import 'package:async_content/async_content.dart';
 import 'package:flutter/material.dart';
 
+@Deprecated(
+    'Use official ListenableBuilder class with a LoadableContentViewModel instead + router to call the start loading content when needed')
 class LoadableContentBuilder<T extends LoadableContentViewModel>
     extends StatelessWidget {
   final T viewModel;
