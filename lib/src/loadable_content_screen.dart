@@ -2,6 +2,8 @@ import 'package:async_content/src/loadable_content_viewmodel.dart';
 import 'package:async_content/src/loaded_content_error_view.dart';
 import 'package:flutter/material.dart';
 
+@Deprecated(
+    'Use official ListenableBuilder class with a LoadableContentViewModel instead')
 abstract class LoadableContentScreen<T extends LoadableContentViewModel>
     extends StatelessWidget {
   final T viewModel;
@@ -54,10 +56,8 @@ abstract class LoadableContentScreen<T extends LoadableContentViewModel>
                   builder: (context, child) {
                     Widget? preparedWidget =
                         pageTitleWidget(context, viewModel);
-                    if (preparedWidget == null) {
-                      preparedWidget =
-                          Text(pageTitle(context, viewModel) ?? "");
-                    }
+                    preparedWidget ??=
+                        Text(pageTitle(context, viewModel) ?? "");
                     return preparedWidget;
                   },
                 ),
