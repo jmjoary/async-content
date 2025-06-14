@@ -2,6 +2,8 @@ import 'package:async_content/src/loadable_content_viewmodel.dart';
 import 'package:async_content/src/loaded_content_error_view.dart';
 import 'package:flutter/material.dart';
 
+@Deprecated(
+    'Use official ListenableBuilder class with a LoadableContentViewModel instead + router to call the start loading content when needed')
 abstract class LoadableContentScreen<T extends LoadableContentViewModel>
     extends StatelessWidget {
   final T viewModel;

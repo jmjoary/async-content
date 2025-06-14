@@ -1,6 +1,8 @@
 import 'package:async_content/async_content.dart';
 import 'package:flutter/material.dart';
 
+@Deprecated(
+    'Use official ListenableBuilder class with a LoadableContentViewModel instead + router to call the start loading content when needed')
 enum ContentIn { expanded, singleChildScrollView, none }
 
 class LoadableContentBuilder<T extends LoadableContentViewModel>
