@@ -93,6 +93,6 @@ void main() {
   });
 }
 
-resolutionActionFunction() {}
+void resolutionActionFunction() {}
 
-cancelActionFunction() {}
+void cancelActionFunction() {}
